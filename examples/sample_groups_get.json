@@ -15,7 +15,7 @@
         "resourceType": "Group",
         "location": "/scim/v2/Groups/4c913b85-9b9b-487f-b4e4-e529318ae751"
       },
-      "displayName": "Technical Researcher",
+      "displayName": "Operations Researcher",
       "members": [
         {
           "display": "john.lindrik@oktaprise.com",
