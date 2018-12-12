@@ -1,0 +1,86 @@
+  get:
+    queryParameters: 
+      filter?:
+        type: string
+        description: 
+          'Filter search for displayName, and status. i.e.: `/Groups?filter=displayName eq "Admins"`'
+      count?:
+        type: integer
+        description: 'Number of results per search'
+      startIndex?:
+        type: integer
+        description: 'Index of the result'
+    headers:
+      Authorization:
+        type: string
+    responses:
+      200:
+        description: The request has succeeded.
+        body:
+          application/json:
+            type: GroupCollection
+            example: !include examples/sample_groups_get.json
+  post:
+    headers:
+      Authorization:
+        type: string
+    body:
+      application/json: GroupDefinition
+    responses:
+      201:
+        description: The group has been created.
+        body:
+          application/json:
+            type: Group
+            example: !include examples/sample_group_get.json
+  /{id}:
+    get:
+      headers:
+        Authorization:
+          type: string
+      responses:
+        200:
+          description: The request has succeeded.
+          body:
+            application/json:
+              type: Group
+              example: !include examples/sample_group_get.json
+        404:
+          description: "Resource not found"
+    put:
+      headers:
+        Authorization:
+          type: string
+      body:
+        application/json: Group
+      responses:
+        200:
+          description: Group replaced.
+          body:
+            application/json:
+              type: Group
+        404:
+          description: "Resource not found"
+    patch:
+      headers:
+        Authorization:
+          type: string
+      body:
+        application/json: GroupPatchOp
+      responses:
+        200:
+          description: Group replaced.
+          body:
+            application/json:
+              type: Group
+        404:
+          description: "Resource not found"
+    delete:
+      headers:
+        Authorization:
+          type: string
+      responses:
+        204:
+          description: "No Content (successful deletion)"
+        404:
+          description: "Resource not found"

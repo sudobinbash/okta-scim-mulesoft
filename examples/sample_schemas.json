@@ -1,0 +1,42 @@
+{
+  "schemas": [ "urn:ietf:params:scim:api:messages:2.0:ListResponse" ],
+  "totalResults": 1,
+  "startIndex": 1,
+  "itemsPerPage": 100,
+  "Resources": [
+    {
+      "schemas": [ "urn:ietf:params:scim:schemas:core:2.0:Schema" ],
+      "id": "urn:ietf:params:scim:schemas:oktaprise:2.0:Users",
+      "description": "Oktaprise parameters.",
+      "name": "OktapriseUsers",
+      "attributes": [
+        {
+          "name": "badge",
+          "type": "string",
+          "multiValued": false,
+          "description": "Employee Badge",
+          "required": true,
+          "caseExact": false,
+          "mutability": "readWrite",
+          "returned": "always",
+          "uniqueness": "none"
+        },
+        {
+          "name": "machine",
+          "type": "string",
+          "multiValued": false,
+          "description": "Employee Machine",
+          "required": true,
+          "caseExact": false,
+          "mutability": "readWrite",
+          "returned": "always",
+          "uniqueness": "none"
+        }
+      ],
+      "meta": {
+        "resourceType": "Schema",
+        "location": "/scim/v2/Schemas/urn:ietf:params:scim:schemas:oktaprise:2.0:Users"
+      }
+    }
+  ]
+}

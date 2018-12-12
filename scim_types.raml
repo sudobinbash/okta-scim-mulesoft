@@ -1,0 +1,258 @@
+UserCollection:
+  type: object
+  description: Class describing a collection of users
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+    totalResults:
+      type: integer
+    startIndex:
+      type: integer
+    itemsPerPage:
+      type: integer
+    resources:
+      type: array
+      description: The list of users
+      items:
+        type: User
+User:
+  type: object
+  description: User entry
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+    id:
+      type: string
+      description: GUID
+    active:
+      type: boolean
+      default: true
+    userName:
+      type: string
+      description: Username, typically their email address
+    name:
+      type: UserFullName
+      description: The user's full name
+    emails:
+      type: array
+      description: The list of emails
+      items:
+        type: UserEmails
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":
+      type: EnterpriseUser
+      description: Custom enterprise attributes from SCIM
+    "urn:ietf:params:scim:schemas:extension:oktaprise:2.0:User":
+      type: OktapriseUser
+      description: Custom attributes from Oktaprise
+    meta:
+      type: UserMetadata
+      description: User metadata
+    groups:
+      type: array
+      description: List of user groups
+      items:
+        type: UserGroups
+UserFullName:
+  type: object
+  description: The full name of the user
+  properties:
+    familyName:
+      type: string
+    givenName:
+      type: string
+    middleName?:
+      type: string
+UserEmails:
+  type: object
+  description: The user email
+  properties:
+    primary:
+      type: boolean
+    "value":
+      type: string
+    type:
+      type: string
+UserGroups:
+  type: object
+  description: The user groups
+  properties:
+    display:
+      type: string
+    "value":
+      type: string
+UserMetadata:
+  type: object
+  description: User metadata
+  properties:
+    resourceType:
+      type: string
+      default: User
+    location:
+      type: string
+      description: The URL where the user can be accessed
+EnterpriseUser:
+  type: object
+  description: Oktaprise custom schema and attributes
+  properties:
+    employeeNumber:
+      type: string
+    costCenter:
+      type: string
+OktapriseUser:
+  type: object
+  description: Oktaprise custom schema and attributes
+  properties:
+    badge:
+      type: string
+    machine:
+      type: string
+UserDefinition:
+  type: object
+  description: Metadata for user creation
+  properties:
+    active?:
+      type: boolean
+    name?:
+      type: UserFullName
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":
+      type: EnterpriseUser
+    "urn:ietf:params:scim:schemas:extension:oktaprise:2.0:User":
+      type: OktapriseUser
+UserPatchOp:
+  type: object
+  description: Patch User
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+        default: "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    operations:
+      type: array
+      description: Patch operation details
+      items:
+        type: object
+        properties:
+          op:
+            type: string
+          "value":
+            type: object
+            properties:
+              active:
+                type: boolean
+GroupCollection:
+  type: object
+  description: Class describing a collection of gorups
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+    totalResults:
+      type: integer
+    startIndex:
+      type: integer
+    itemsPerPage:
+      type: integer
+    resources:
+      type: array
+      description: The list of groups
+      items:
+        type: Group
+Group:
+  type: object
+  description: Group entry
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+    id:
+      type: string
+      description: GUID
+    displayName:
+      type: string
+    members?:
+      type: array
+      description: The list of groups
+      items:
+        type: GroupMembers
+    meta:
+      type: GroupMetadata
+      description: Group metadata
+GroupMembers:
+  type: object
+  description: Group Members
+  properties:
+    display?:
+      type: string
+    "value":
+      type: string
+GroupMetadata:
+  type: object
+  description: Group metadata
+  properties:
+    resourceType:
+      type: string
+      default: Group
+    location:
+      type: string
+      description: The URL where the group can be accessed
+GroupDefinition:
+  type: object
+  description: Metadata for group creation
+  properties:
+    displayName:
+      type: string
+    members?:
+      type: array
+      items:
+        type: GroupMembers
+GroupPatchOp:
+  type: object
+  description: Patch Group
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+        default: "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    operations:
+      type: array
+      description: Patch operation details
+      items:
+        type: object
+        properties:
+          op:
+            type: string
+          "value":
+            type: object
+            properties:
+              id?:
+                type: string
+              displayName?:
+                type: string
+ScimException:
+  type: object
+  description: SCIM Exception
+  properties:
+    schemas:
+      type: array
+      description: The list of schemas
+      items:
+        type: string
+        default: "urn:ietf:params:scim:api:messages:2.0:Error"
+    detail:
+      type: string
+    status:
+      type: string

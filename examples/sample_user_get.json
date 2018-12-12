@@ -1,0 +1,43 @@
+    {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:oktaprise:2.0:User"
+      ],
+      "id": "ce58fe63-2eaa-45e7-97da-5bbdf87ce607",
+      "active": true,
+      "userName": "john.lindrik@oktaprise.com",
+      "name": {
+        "givenName": "John",
+        "familyName": "Lindrik"
+      },
+      "emails": [
+        {
+          "primary": true,
+          "value": "john.lindrik@oktaprise.com",
+          "type": "work"
+        }
+      ],
+      "groups": [
+        {
+          "display": "Technical Researcher",
+          "value": "4c913b85-9b9b-487f-b4e4-e529318ae751"
+        },
+        {
+          "display": "Operations Admin",
+          "value": "52329f03-1agd-47er-8a15-edbf53c3ok91"
+        }
+      ],
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+        "employeeNumber": "ABC101",
+        "costCenter": "US_IT"
+      },
+      "urn:ietf:params:scim:schemas:extension:oktaprise:2.0:User": {
+        "badge": "1",
+        "machine": "MAC1"
+      },
+      "meta": {
+        "resourceType": "User",
+        "location": "/scim/v2/Users/ce58fe63-2eaa-45e7-97da-5bbdf87ce607"
+      }
+    }

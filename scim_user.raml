@@ -1,0 +1,86 @@
+get:
+  queryParameters: 
+    filter?:
+      type: string
+      description: 
+        'Filter search for userName, and status. i.e.: `/Users?filter=userName eq j@doe.com`'
+    count?:
+      type: integer
+      description: 'Number of results per search'
+    startIndex?:
+      type: integer
+      description: 'Index of the result'
+  headers:
+    Authorization:
+      type: string
+  responses:
+    200:
+      description: The request has succeeded.
+      body:
+        application/json:
+          type: UserCollection
+          example: !include examples/sample_users_get.json
+post:
+  headers:
+    Authorization:
+      type: string
+  body:
+    application/json: UserDefinition
+  responses:
+    201:
+      description: The user has been created.
+      body:
+        application/json:
+          type: User
+          example: !include examples/sample_user_get.json
+/{id}:
+  get:
+    headers:
+      Authorization:
+        type: string
+    responses:
+      200:
+        description: The request has succeeded.
+        body:
+          application/json:
+            type: User
+            example: !include examples/sample_user_get.json
+      404:
+        description: "Resource not found"
+  put:
+    headers:
+      Authorization:
+        type: string
+    body:
+      application/json: User
+    responses:
+      200:
+        description: User replaced.
+        body:
+          application/json:
+            type: User
+      404:
+        description: "Resource not found"
+  patch:
+    headers:
+      Authorization:
+        type: string
+    body:
+      application/json: UserPatchOp
+    responses:
+      200:
+        description: User replaced.
+        body:
+          application/json:
+            type: User
+      404:
+        description: "Resource not found"
+  delete:
+    headers:
+      Authorization:
+        type: string
+    responses:
+      204:
+        description: "No Content (successful deletion)"
+      404:
+        description: "Resource not found"

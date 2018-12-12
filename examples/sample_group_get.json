@@ -1,0 +1,21 @@
+{
+  "schemas": [
+    "urn:ietf:params:scim:schemas:core:2.0:Group"
+  ],
+  "id": "4c913b85-9b9b-487f-b4e4-e529318ae751",
+  "meta": {
+    "resourceType": "Group",
+    "location": "/scim/v2/Groups/4c913b85-9b9b-487f-b4e4-e529318ae751"
+  },
+  "displayName": "Technical Researcher",
+  "members": [
+    {
+      "display": "john.lindrik@oktaice.com",
+      "value": "ce58fe63-2eaa-45e7-97da-5bbdf87ce607"
+    },
+    {
+      "display": "jane.doe@oktaice.com",
+      "value": "d0e07f41-e8bf-43e5-b70c-a4cdde92ddc6"
+    }
+  ]
+}

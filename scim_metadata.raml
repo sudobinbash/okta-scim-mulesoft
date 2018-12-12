@@ -1,0 +1,36 @@
+#%RAML 1.0
+baseUri: /scim/v2
+version: v1
+title: SCIM Metadata
+description: SCIM Metadata RAML doc. Tested with Okta
+/ServiceProviderConfig:
+  get:
+    headers:
+      Authorization:
+        type: string
+    responses:
+      200:
+        description: The request has succeeded.
+        body:
+          application/json:
+            example: !include examples/sample_service_provider_config.json
+/ResourceTypes:
+  get:
+    headers:
+      Authorization:
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/sample_resource_types.json
+/Schemas:
+  get:
+    headers:
+      Authorization:
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/sample_schemas.json
