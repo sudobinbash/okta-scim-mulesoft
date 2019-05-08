@@ -1,0 +1,10 @@
+{
+    "name": "Okta: SCIM Template for Mulesoft",
+    "description": "This spec works as a boilerplate for synchronizing users and groups between Okta and Mulesoft Anypoint Platform using SCIM 2.0",
+    "url": "https://github.com/sudobinbash/okta-scim-mulesoft",
+    "logo": "https://raw.githubusercontent.com/sudobinbash/okta-scim-mulesoft/master/logo_mulesoft.png",
+    "categories": [
+        "user-management",
+        "integration-etwork"
+    ]
+}
